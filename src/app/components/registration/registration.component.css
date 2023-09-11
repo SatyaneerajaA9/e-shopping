@@ -1,0 +1,17 @@
+body {
+    background-color: #f2f7fb
+}
+
+.card {
+    border-right: 2px solid darkblue;
+    border-left: 2px solid darkblue;
+}
+
+.btn-primary {
+    background-color: rgb(7, 2, 108);
+    border-color: rgb(7, 2, 108);
+}
+
+.bg-footer {
+    background-color: rgb(7, 2, 108);
+}
