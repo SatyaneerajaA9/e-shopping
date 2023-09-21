@@ -28,6 +28,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { AdminGuard } from './guards/admin.guard';
 import { RegistrationComponent } from './components/registration/registration.component';
 import { MyDashboardComponent } from './components/my-dashboard/my-dashboard.component';
+import { WishlistService } from './services/wishlist.service';
+import { WishlistComponent } from './components/wishlist/wishlist.component';
 
 const routes: Routes = [
   { path: '', component: ProductsComponent },
@@ -35,6 +37,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'my-wishlist', component: WishlistComponent },
   { path: 'check-out', component: CheckOutComponent, canActivate: [AuthGuard] },
   { path: 'order-detail/:id', component: OrderDetailComponent, canActivate: [AuthGuard] },
   { path: 'order-success/:id', component: OrderSuccessComponent, canActivate: [AuthGuard] },
@@ -56,7 +59,8 @@ const routes: Routes = [
     UnAuthorizedComponent,
     MyOrdersComponent,
     MyDashboardComponent,
-    OrderDetailComponent
+    OrderDetailComponent,
+    WishlistComponent
   ],
   imports: [
     BrowserModule,
@@ -73,7 +77,15 @@ const routes: Routes = [
     AdminModule,
     AngularFireModule.initializeApp(environment.firebaseConfig)
   ],
-  providers: [AuthService, ProductService, CategoryService, ShoppingCartService, OrderService, AuthGuard, AdminGuard],
+  providers: [
+    AuthService,
+    ProductService,
+    CategoryService,
+    ShoppingCartService,
+    OrderService,
+    WishlistService,
+    AuthGuard,
+    AdminGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
